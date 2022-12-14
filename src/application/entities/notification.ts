@@ -1,6 +1,8 @@
+import { Content } from './content';
+
 interface NotificationProps {
   recipientId: string;
-  content: string;
+  content: Content;
   category: string;
   readAt?: Date | null;
   createdAt: Date;
@@ -13,14 +15,11 @@ export class Notification {
     this.props = props;
   }
 
-  public set content(content: string) {
-    if (content.length < 5) {
-      throw new Error();
-    }
+  public set content(content: Content) {
     this.content = content;
   }
 
-  public get content(): string {
+  public get content(): Content {
     return this.props.content;
   }
 
